@@ -1,6 +1,4 @@
-import lexer.LexicalException;
-import lexer.Token;
-import lexer.TokenType;
+package lexer;
 
 public class TokenPrinter {
 
@@ -12,11 +10,9 @@ public class TokenPrinter {
         System.out.println("------------------------------------------------------------");
 
         try {
-            Token token;
-            do {
-                token = scanner.nextToken();
+            for (Token token : scanner.scanTokens()) {
                 System.out.println(token);
-            } while (token.type != TokenType.EOF);
+            }
         } catch (LexicalException e) {
             System.err.println("\n[LEXICAL ERROR]: " + e.getMessage());
         }
