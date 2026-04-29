@@ -179,6 +179,11 @@ java Main -t demo.java2
 
 This demonstrates scanner output, parser integration, and interpreter output in one flow.
 
+```bash
+java Main -t -a demo.java2
+```
+This demonstrates scanner output, parser integration, interpreter, and AST output in one flow. 
+
 ## Short Design Report
 
 Design decisions:
