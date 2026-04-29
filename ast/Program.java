@@ -1,5 +1,5 @@
 package ast;
-
+import ast.Visitor;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -25,5 +25,9 @@ public class Program implements Node {
 	@Override
 	public SourcePosition getPosition() {
 		return position;
+	}
+	@Override
+	public <R> R accept(Visitor<R> visitor) {
+    	return visitor.visitProgram(this);
 	}
 }

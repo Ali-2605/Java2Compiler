@@ -1,5 +1,5 @@
 package ast;
-
+import ast.Visitor;
 import util.SourcePosition;
 
 public class LiteralExpr implements Expr {
@@ -18,5 +18,9 @@ public class LiteralExpr implements Expr {
 	@Override
 	public SourcePosition getPosition() {
 		return position;
+	}
+	@Override
+	public <R> R accept(Visitor<R> visitor) {
+    	return visitor.visitLiteralExpr(this);
 	}
 }
