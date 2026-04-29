@@ -18,7 +18,7 @@ public class Main {
         String path = null;
 
         for (String arg : args) {
-            if (arg.equals("--tokens") || arg.equals("-t")) {
+            if (arg.equals("-t")) {
                 printTokens = true;
             } else if (path == null) {
                 path = arg;
@@ -28,7 +28,7 @@ public class Main {
         if (path != null) {
             runFile(path, printTokens);
         } else {
-            runPrompt(printTokens);
+            System.err.println("Usage: java Main [-t] <file.txt>");
         }
     }
 
@@ -41,14 +41,6 @@ public class Main {
         }
     }
 
-    private static void runPrompt(boolean printTokens) {
-        // Quick demo string for local testing
-        String demo = "x :- 10 ~\n" +
-                     "leviosa -> x + 5 -<\n" +
-                     "isValid :- :) ~";
-        System.out.println("Running Demo Mode:\n" + demo + "\n");
-        run(demo, printTokens);
-    }
 
     private static void run(String source, boolean printTokens) {
         try {
