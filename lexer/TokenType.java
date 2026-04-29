@@ -1,0 +1,31 @@
+package lexer;
+
+public enum TokenType {
+	IDENTIFIER,
+	NUMBER,
+	TRUE,
+	FALSE,
+
+	PRINT,
+
+	PLUS,
+	MINUS,
+	STAR,
+	SLASH,
+	AND,
+	OR,
+	NOT,
+	ASSIGN,
+	EQUAL,
+	NOT_EQUAL,
+	LESS,
+	LESS_EQUAL,
+	GREATER,
+	GREATER_EQUAL,
+
+	LPAREN,
+	RPAREN,
+
+	END,
+	EOF
+}
