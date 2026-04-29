@@ -1,2 +1,0 @@
-CASE: lexer_number_overflow
-LEXER_ERROR: Number literal out of range

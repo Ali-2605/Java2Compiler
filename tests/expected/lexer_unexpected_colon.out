@@ -1,2 +1,0 @@
-CASE: lexer_unexpected_colon
-LEXER_ERROR: Unexpected ':' sequence

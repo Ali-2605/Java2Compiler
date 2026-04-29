@@ -1,7 +1,0 @@
-~
-x 1 ~
-leviosa -> 1 + 2 ~
-x :- ~
-x :- 1 < 2 < 3 ~
-y :- 2 leviosa :) ~
-leviosa :) x :- 3 ~

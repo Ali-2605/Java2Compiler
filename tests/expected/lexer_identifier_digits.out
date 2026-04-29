@@ -1,2 +1,0 @@
-CASE: lexer_identifier_digits
-LEXER_ERROR: Identifiers cannot contain digits

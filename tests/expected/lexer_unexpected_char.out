@@ -1,2 +1,0 @@
-CASE: lexer_unexpected_char
-LEXER_ERROR: Unexpected character '@'

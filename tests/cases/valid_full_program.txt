@@ -1,0 +1,6 @@
+`start comment`
+x :- 10 ~
+y :- x + 5 * 2 ~
+ok :- :) :{ :! :( :[ :) ~
+leviosa -> y -< ~
+cmp :- 3 >= 2 :{ 1 < 2 ~
