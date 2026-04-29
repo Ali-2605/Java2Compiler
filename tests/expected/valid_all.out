@@ -1,0 +1,38 @@
+CASE: valid_all
+TOKENS:
+IDENTIFIER | x | null
+ASSIGN | :- | null
+NUMBER | 1 | 1
+PLUS | + | null
+NUMBER | 2 | 2
+STAR | * | null
+NUMBER | 3 | 3
+END | ~ | null
+PRINT | leviosa | null
+LPAREN | -> | null
+IDENTIFIER | x | null
+PLUS | + | null
+NUMBER | 5 | 5
+RPAREN | -< | null
+END | ~ | null
+IDENTIFIER | flag | null
+ASSIGN | :- | null
+NOT | :! | null
+TRUE | :) | true
+AND | :{ | null
+FALSE | :( | false
+OR | :[ | null
+TRUE | :) | true
+END | ~ | null
+IDENTIFIER | cmp | null
+ASSIGN | :- | null
+NUMBER | 1 | 1
+LESS | < | null
+NUMBER | 2 | 2
+AND | :{ | null
+NUMBER | 3 | 3
+GREATER_EQUAL | >= | null
+NUMBER | 4 | 4
+END | ~ | null
+EOF |  | null
+PARSER: OK

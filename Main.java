@@ -1,10 +1,6 @@
-import lexer.Scanner;
-import lexer.Token;
-import lexer.TokenType;
-import lexer.LexicalException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.io.IOException;
 import lexer.TokenPrinter;
 
 public class Main {

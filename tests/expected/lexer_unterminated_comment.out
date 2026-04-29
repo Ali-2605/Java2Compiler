@@ -1,0 +1,2 @@
+CASE: lexer_unterminated_comment
+LEXER_ERROR: Unterminated comment
