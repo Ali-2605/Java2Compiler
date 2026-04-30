@@ -81,6 +81,42 @@ Notes:
 - Chained comparisons are rejected intentionally.
 - Parser uses recovery (`synchronize`) after statement-level failures.
 
+## Token demo.java2 visualization 
+
+--- TOKEN STREAM VISUALIZATION ---
++-----------------+--------------+------------+------------+
+| TYPE            | LEXEME       | LITERAL    | POSITION   |
++-----------------+--------------+------------+------------+
+| IDENTIFIER      | 'total'      |            | 1:1        |
+| ASSIGN          | ':-'         |            | 1:7        |
+| NUMBER          | '1'          | 1          | 1:11       |
+| PLUS            | '+'          |            | 1:13       |
+| NUMBER          | '23'         | 23         | 1:15       |
+| PLUS            | '+'          |            | 1:18       |
+| NUMBER          | '24'         | 24         | 1:20       |
+| STAR            | '*'          |            | 1:24       |
+| NUMBER          | '35'         | 35         | 1:26       |
+| END             | '~'          |            | 1:29       |
+| IDENTIFIER      | 'ok'         |            | 3:1        |
+| ASSIGN          | ':-'         |            | 3:4        |
+| TRUE            | ':)'         | true       | 3:7        |
+| AND             | ':{'         |            | 3:10       |
+| NOT             | ':!'         |            | 3:13       |
+| FALSE           | ':('         | false      | 3:16       |
+| END             | '~'          |            | 3:18       |
+| PRINT           | 'leviosa'    |            | 4:1        |
+| LPAREN          | '->'         |            | 4:9        |
+| IDENTIFIER      | 'total'      |            | 4:12       |
+| RPAREN          | '-<'         |            | 4:18       |
+| END             | '~'          |            | 4:20       |
+| PRINT           | 'leviosa'    |            | 5:1        |
+| LPAREN          | '->'         |            | 5:9        |
+| IDENTIFIER      | 'ok'         |            | 5:11       |
+| RPAREN          | '-<'         |            | 5:13       |
+| END             | '~'          |            | 5:15       |
+| EOF             | ''           |            | 6:1        |
++-----------------+--------------+------------+------------+
+
 ## Scanner and Parser Diagnostics
 
 - Lexical errors: thrown as `LexicalException` with source position.
@@ -148,6 +184,30 @@ Program
          UnaryExpr(op=NOT)
             IdentifierExpr(blocked)
 ```
+## AST demo.java2 visualization
+
+--- ABSTRACT SYNTAX TREE ---
+Program
+  Assignment: total
+    Value: Binary(+)
+             Left: Binary(+)
+                     Left: Literal[1]
+                     Right: Literal[23]
+             Right: Binary(*)
+                      Left: Literal[24]
+                      Right: Literal[35]
+  Assignment: ok
+    Value: Binary(:{)
+             Left: Literal[true]
+             Right: Unary(:!)
+                      Right: Literal[false]
+  Print (leviosa)
+    Expr: Grouping
+            Inside: Id[total]
+  Print (leviosa)
+    Expr: Grouping
+            Inside: Id[ok]
+-----------------------------
 
 ## Test Cases
 
