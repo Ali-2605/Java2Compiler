@@ -1,5 +1,5 @@
 package ast;
-
+import ast.Visitor;
 import lexer.Token;
 import util.SourcePosition;
 
@@ -31,5 +31,9 @@ public class BinaryExpr implements Expr {
 	@Override
 	public SourcePosition getPosition() {
 		return position;
+	}
+	@Override
+	public <R> R accept(Visitor<R> visitor) {
+    	return visitor.visitBinaryExpr(this);
 	}
 }
