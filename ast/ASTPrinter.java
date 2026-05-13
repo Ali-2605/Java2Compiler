@@ -64,10 +64,6 @@ public class ASTPrinter implements Visitor<String> {
         return "Id[" + expr.getName() + "]\n";
     }
 
-    /**
-     * This is the secret sauce. It takes the result of a child's accept() 
-     * and shifts the entire block to the right.
-     */
     private String formatChild(String label, Expr expr, int level) {
         String result = expr.accept(this);
         String[] lines = result.split("\n");
@@ -76,7 +72,7 @@ public class ASTPrinter implements Visitor<String> {
         for (int i = 0; i < lines.length; i++) {
             sb.append(indent(level));
             if (i == 0) sb.append(label).append(": ");
-            else sb.append(" ".repeat(label.length() + 2)); // Align lines after the label
+            else sb.append(" ".repeat(label.length() + 2)); 
             
             sb.append(lines[i]).append("\n");
         }
