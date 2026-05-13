@@ -172,7 +172,7 @@ public class Parser {
 		if (match(TokenType.LPAREN)) {
 			Token left = previous();
 			Expr expr = parseExpr();
-			consume(TokenType.RPAREN, "Expect '-<' after expression");
+			consume(TokenType.RPAREN, "Expect '-<' to close grouped expression");
 			return new GroupExpr(expr, left.getPosition());
 		}
 

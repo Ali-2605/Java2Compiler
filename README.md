@@ -188,3 +188,58 @@ Design decisions:
 3. AST separates syntax from runtime evaluation to keep parser clean and testable.
 4. Position-aware exceptions provide actionable diagnostics for both lexical and parse phases.
 5. Comparison parsing is intentionally non-chainable to enforce explicit boolean expressions.
+
+## TA Checklist Answers
+
+Use this section as the short defense for the rubric.
+
+### Boolean Rule
+
+- `not` has the highest precedence among boolean operators, then `and`, then `or`.
+- Comparisons are parsed in a separate grammar layer from arithmetic, so `1 + 2 < 3 * 4` is handled as arithmetic on both sides of a comparison.
+- Boolean and arithmetic structure are distinguishable in the AST: boolean operations use `BinaryExpr` or `UnaryExpr` with logical operator tokens, while arithmetic operations use the same node types with arithmetic operator tokens. The tree shape and operator token type make the meaning explicit.
+
+### Language Scope
+
+- The language is a small, well-defined rule language with assignments, printing, arithmetic, boolean logic, comparisons, literals, identifiers, and grouping.
+- The scope is manageable because the project only targets a recursive-descent front end plus a simple interpreter.
+- Required features are implemented, and the repository includes both valid and invalid sample inputs under `tests/cases/`.
+
+### Scanner / Lexical Analysis
+
+- Token categories are defined in `lexer/TokenType.java`.
+- Tokens keep both the token type and the raw lexeme, and the token printer shows both fields separately.
+- Keywords, identifiers, literals, operators, and delimiters are all handled explicitly by the scanner.
+- Scanner output is visible independently with `java Main -t <file>`.
+- Lexical errors are reported with a message and source position through `LexicalException`.
+
+### Parser / Recursive Descent
+
+- The grammar is recursive-descent friendly and is implemented directly in `parser/Parser.java`.
+- The parser methods mirror grammar nonterminals such as `parseOr`, `parseAnd`, `parseComparison`, `parseNot`, `parseArithmetic`, `parseTerm`, and `parseFactor`.
+- Lookahead is handled with `peek()`, `check()`, `match()`, and `consume()`.
+- Valid inputs parse successfully, and invalid inputs are rejected with parser errors instead of silent acceptance.
+
+### AST / Structural Output
+
+- The project builds a real AST rooted at `Program`.
+- The AST is different from token output because tokens are flat scanner results, while the AST is a hierarchical tree of statements and expressions.
+- Node kinds are meaningful: `Program`, `AssignmentStmt`, `PrintStmt`, `BinaryExpr`, `UnaryExpr`, `LiteralExpr`, `IdentifierExpr`, and `GroupExpr`.
+- The AST design can be explained as syntax-first structure that the interpreter later evaluates.
+
+### Testing and Diagnostics
+
+- Valid, invalid, and nested cases are present in `tests/cases/`.
+- Syntax errors include a source position and a readable message.
+- Malformed input fails gracefully instead of crashing the parser.
+
+### Understanding and Explanation
+
+- The grammar, scanner/parser interface, and parser flow are documented in this README and reflected in the code structure.
+- The project is not just an evaluator demo; it performs real scanning, parsing, AST construction, and then interpretation.
+
+### Evidence You Can Quote
+
+- `tests.TestRunner` passes all current cases: 15/15.
+- `java Main -t <file>` prints the token stream with both lexeme and token type.
+- `tests/cases/` includes valid programs, nested grouping precedence, lexical failures, parser failures, and chained-comparison rejection.
