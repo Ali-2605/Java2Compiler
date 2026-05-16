@@ -62,6 +62,10 @@ java tests.TestRunner
 
 The test runner automatically discovers and runs all test cases in `tests/cases/`, validating both valid programs and error handling for invalid syntax.
 
+## GitHub Repository
+
+[https://github.com/Ali-2605/Java2Compiler](https://github.com/Ali-2605/Java2Compiler)
+
 ## Project Structure
 
 - `Main.java` - CLI entry point
