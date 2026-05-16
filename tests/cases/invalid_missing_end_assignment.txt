@@ -1,1 +1,6 @@
-x :- 1
+`Test missing statement terminator`
+a :- 15 ~
+b :- 25 ~
+`Missing ~ terminator on this assignment`
+c :- 35
+leviosa -> c -<~

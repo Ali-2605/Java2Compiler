@@ -1,1 +1,5 @@
+`Test unexpected bang character`
+x :- 42 ~
+`Invalid ! outside of NOT operator context`
 !
+leviosa -> x -< ~

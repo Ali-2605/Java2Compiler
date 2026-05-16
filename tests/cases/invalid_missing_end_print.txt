@@ -1,1 +1,6 @@
-leviosa :)
+`Test missing terminator on print`
+x :- 99 ~
+y :- 88 ~
+`Missing ~ on this print statement`
+leviosa -> y -<
+z :- 77 ~

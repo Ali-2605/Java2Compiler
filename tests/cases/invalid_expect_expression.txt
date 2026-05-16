@@ -1,1 +1,5 @@
-x :- ~
+`Test missing expression in assignment`
+a :- 5 ~
+b :- 10 ~
+`Missing expression after assignment operator`
+c :- ~

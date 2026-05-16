@@ -1,1 +1,6 @@
-leviosa -> 1 + 2 ~
+`Test missing closing parenthesis`
+x :- 5 ~
+y :- 10 ~
+`Missing closing -< parenthesis`
+z :- -> x + y ~
+leviosa -> z -< ~

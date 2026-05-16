@@ -1,1 +1,6 @@
-999999999999999999999
+`Test number overflow error`
+a :- 100 ~
+b :- 200 ~
+`Number too large to fit in integer`
+c :- 999999999999999999999 ~
+leviosa -> c -<~

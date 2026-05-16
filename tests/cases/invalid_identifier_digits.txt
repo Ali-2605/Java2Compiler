@@ -1,1 +1,7 @@
-abc1 ~
+`Test identifier with digits error`
+x :- 100 ~
+`Identifiers cannot contain digits`
+abc1 :- 50 ~
+leviosa -> abc1 ~
+
+

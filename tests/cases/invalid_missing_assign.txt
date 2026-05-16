@@ -1,1 +1,6 @@
-x 1 ~
+`Test missing assignment operator`
+a :- 10 ~
+b :- 20 ~
+`Missing :- operator`
+c 30 ~
+leviosa -> a -<~

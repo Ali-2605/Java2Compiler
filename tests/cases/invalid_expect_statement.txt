@@ -1,1 +1,5 @@
+`Test statement with no valid content`
+x :- 42 ~
+leviosa -> x -<~
+`Invalid empty statement`
 ~
