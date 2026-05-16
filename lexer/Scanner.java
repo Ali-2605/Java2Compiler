@@ -217,4 +217,4 @@ public class Scanner {
 	private LexicalException error(String message) {
 		return new LexicalException(message, new SourcePosition(tokenLine, tokenColumn));
 	}
-}
+} 

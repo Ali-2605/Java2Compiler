@@ -17,13 +17,13 @@ import runtime.Interpreter;
 public class Main {
     public static void main(String[] args) {
         boolean printTokens = false;
-        boolean printAST = false; // Added a flag for AST visualization
+        boolean printAST = false; 
         String path = null;
 
         for (String arg : args) {
             switch (arg) {
                 case "-t" -> printTokens = true;
-                case "-a" -> printAST = true; // New flag for the AST Printer
+                case "-a" -> printAST = true; 
                 default -> {
                     if (path == null) path = arg;
                 }
@@ -48,16 +48,13 @@ public class Main {
 
     private static void run(String source, boolean printTokens, boolean printAST) {
         try {
-            // 1. Lexical Analysis
             Scanner scanner = new Scanner(source);
             List<Token> tokens = scanner.scanTokens();
 
             if (printTokens) {
-                // Assuming TokenPrinter.printTokens accepts List<Token>
                 TokenPrinter.printTokens(tokens);
             }
 
-            // 2. Syntax Analysis
             Parser parser = new Parser(tokens);
             Program program = parser.parseProgram();
 
@@ -68,13 +65,11 @@ public class Main {
                 return;
             }
 
-            // 3. Optional AST Visualization (Your Task D)
             if (printAST) {
                 ASTPrinter printer = new ASTPrinter();
                 printer.print(program);
             }
 
-            // 4. Execution
             Interpreter interpreter = new Interpreter();
             interpreter.execute(program);
 
