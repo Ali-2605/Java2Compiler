@@ -4,4 +4,3 @@ x :- 100 ~
 abc1 :- 50 ~
 leviosa -> abc1 ~
 
-
